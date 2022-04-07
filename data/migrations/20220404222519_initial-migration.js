@@ -16,7 +16,7 @@ exports.up = function(knex) {
         table.string('nickname', 128)
           .notNullable();
         table.string('species', 128);
-        table.string('h2o_frequency', 25)
+        table.string('h20_frequency', 25)
           .notNullable();
         table.string('image', 255);
         table.integer('user_id')
