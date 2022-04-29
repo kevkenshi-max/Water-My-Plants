@@ -10,6 +10,17 @@ router.get('/', (req, res, next) => {
       .catch(next);
   });
 
+  router.get('/mine', (req, res, next) => {
+    const id = req.decodedToken.id;
+  
+    Plants.findByUser(id)
+      .then(plant => {
+        console.log(plant);
+        res.status(200).json(plant);
+      })
+      .catch(next);
+  });
+
   router.get('/:id', (req, res, next) => {
     Plants.findById(req.params.id)
       .then(plant => {
