@@ -1,31 +1,37 @@
-Paradigm Shift by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# back_end
 
+## Getting Started Locally:
+1. Clone this repository
+2. Run **npm i** from root directory
+3. Run **npm run server** to start the server on your machine (will be running on port 5000)
 
-Say hello to Paradigm Shift, my first addition to HTML5 UP in more than a year (!!!).
-Took things in a slightly different direction with this one, partly to mess with CSS
-grid (which this one relies on pretty heavily) but mostly to get back to making weirder
-and more experimental designs/layouts. Anyway, hope you dig it, and thanks for the
-continued support despite the lack of updates :)
+## Endpoints:
+* Example endpoint would be: **localhost:5000/api/users**
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+#### Register/Login/Logout Endpoints
 
-(* = not included)
+| Action | Endpoint | Description
+|---|---|---|
+| POST | `/api/auth/register` | Creates a new user |
+| POST | `/api/auth/login` | Allows user to login and returns token |
+| GET | `/api/auth/logout` | Destroys current session and logs a user out |
 
-AJ
-aj@lkn.io | @ajlkn
+#### User Endpoints
 
+| Action | Endpoint | Description
+|---|---|---|
+| GET | `/api/users` | If user is logged in, returns an array of all other users |
+| GET | `/api/users/:id` | If user is logged in, returns the user with the specified ID |
+| GET | `/api/users/:id/plants` | Retrieves list of user's plants and plant info |
+| PUT | `/api/users/:id` | Edits user with specified ID |
+| DELETE | `/api/users/:id` | Deletes user with specified ID |
 
-Credits:
+#### Plant Endpoints
 
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+| Action | Endpoint | Description
+|---|---|---|
+| GET | `/api/plants` | If user is logged in, returns an array of all plants (theirs and those of other users) |
+| GET | `/api/plants/:id` | If user is logged in, returns the plant with the specified ID |
+| POST | `/api/plants` | Adds a plant to currently logged in user |
+| PUT | `/api/plants/:id` | Edits plant with specified ID |
+| DELETE | `/api/plants/:id` | Deletes plant with specified ID |
